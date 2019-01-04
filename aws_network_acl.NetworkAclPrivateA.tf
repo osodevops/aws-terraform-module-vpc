@@ -21,5 +21,6 @@ resource "aws_network_acl" "networkaclprivatea" {
   }
 
   tags = "${merge(var.common_tags,
+    map("Type", "NetworkAclPrivateA"),
     map("Name", "${var.account_name}-NetworkAcl-Private-${element(aws_subnet.private.*.id,0)}"))}"
 }

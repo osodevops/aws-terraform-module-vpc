@@ -5,6 +5,6 @@ resource "aws_subnet" "public" {
   availability_zone = "${data.aws_availability_zones.available.names[count.index]}"
 
   tags = "${merge(var.common_tags,
-   map("Type", "Public"),
+   map("Type", "PublicSubnet${var.zone[count.index]}"),
    map("Name" , "${var.account_name}-Public-${var.zone[count.index]}"))}"
 }
