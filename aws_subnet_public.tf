@@ -6,5 +6,6 @@ resource "aws_subnet" "public" {
 
   tags = "${merge(var.common_tags,
    map("Type", "PublicSubnet${var.zone[count.index]}"),
+   map("Zone", "Private"),
    map("Name" , "${var.account_name}-Public-${var.zone[count.index]}"))}"
 }
