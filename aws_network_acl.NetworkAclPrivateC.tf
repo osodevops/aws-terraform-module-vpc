@@ -1,6 +1,6 @@
 resource "aws_network_acl" "networkaclprivatec" {
-  vpc_id     = "${aws_vpc.main.id}"
-  subnet_ids = ["${element(aws_subnet.private.*.id,2)}"]
+  vpc_id     = aws_vpc.main.id
+  subnet_ids = [aws_subnet.private[2].id]
 
   egress {
     rule_no    = 100

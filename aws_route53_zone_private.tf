@@ -1,5 +1,5 @@
 resource "aws_route53_zone" "private" {
-  name    = "${lower(var.account_name)}.${data.aws_region.current.name}.cloud."
+  name    = "${lower(var.environment)}-${lower(data.aws_iam_account_alias.current.account_alias)}.cloud."
   comment = "Managed by Terraform"
 
   vpc {

@@ -1,6 +1,10 @@
 variable "account_name" {}
 variable "cidr" {}
 
+variable "environment" {
+  type = string
+}
+
 variable "common_tags" {
   type = "map"
 }
