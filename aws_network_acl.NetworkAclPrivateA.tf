@@ -20,7 +20,14 @@ resource "aws_network_acl" "networkaclprivatea" {
     protocol   = "all"
   }
 
-  tags = "${merge(var.common_tags,
-    map("Type", "NetworkAclPrivateA"),
-    map("Name", "${var.account_name}-NetworkAcl-Private-${element(aws_subnet.private.*.id,0)}"))}"
+  tags = merge(
+    var.common_tags,
+    {
+      "Type" = "NetworkAclPrivateA"
+    },
+    {
+      "Name" = "${var.account_name}-NetworkAcl-Private-${element(aws_subnet.private.*.id, 0)}"
+    },
+  )
 }
+
