@@ -10,6 +10,7 @@ variable "environment" {
 
 variable "common_tags" {
   type = map(string)
+
 }
 
 variable "zone" {
