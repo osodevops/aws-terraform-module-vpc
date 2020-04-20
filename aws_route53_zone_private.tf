@@ -3,13 +3,14 @@ resource "aws_route53_zone" "private" {
   comment = "Managed by Terraform"
 
   vpc {
-    vpc_id     = "${aws_vpc.main.id}"
-    vpc_region = "${data.aws_region.current.name}"
+    vpc_id     = aws_vpc.main.id
+    vpc_region = data.aws_region.current.name
   }
 
   lifecycle {
-    ignore_changes = ["vpc"]
+    ignore_changes = [vpc]
   }
 
-  tags = "${var.common_tags}"
+  tags = var.common_tags
 }
+
