@@ -20,7 +20,14 @@ resource "aws_network_acl" "networkaclpublic" {
     protocol   = "all"
   }
 
-  tags = "${merge(var.common_tags,
-    map("Type", "NetworkAclPublic"),
-    map("Name", "${var.account_name}-NetworkAcl-Public"))}"
+  tags = merge(
+    var.common_tags,
+    {
+      "Type" = "NetworkAclPublic"
+    },
+    {
+      "Name" = "${var.account_name}-NetworkAcl-Public"
+    },
+  )
 }
+
