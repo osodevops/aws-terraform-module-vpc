@@ -1,4 +1,5 @@
 resource "aws_vpc_endpoint" "ec2" {
+  count             = var.vpc_endpoint_ec2_enabled
   vpc_id            = aws_vpc.main.id
   service_name      = "com.amazonaws.${data.aws_region.current.name}.ec2"
   vpc_endpoint_type = "Interface"
@@ -12,6 +13,7 @@ resource "aws_vpc_endpoint" "ec2" {
 }
 
 resource "aws_vpc_endpoint" "ec2messages" {
+  count             = var.vpc_endpoint_ec2_enabled
   vpc_id            = aws_vpc.main.id
   service_name      = "com.amazonaws.${data.aws_region.current.name}.ec2messages"
   vpc_endpoint_type = "Interface"
