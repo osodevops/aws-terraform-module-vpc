@@ -10,6 +10,11 @@ variable "environment" {
 variable "common_tags" {
   type = map(string)
 }
+
+variable "additional_subnet_tags" {
+  type = map(string)
+}
+
 variable "zone" {
   type    = list(string)
   default = ["us-east-1a", "us-east-1b", "us-east-1c"]
