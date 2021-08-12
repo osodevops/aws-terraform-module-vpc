@@ -13,6 +13,7 @@ variable "common_tags" {
 
 variable "additional_subnet_tags" {
   type = map(string)
+  default = {}
 }
 
 variable "zone" {
