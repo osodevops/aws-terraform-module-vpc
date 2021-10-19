@@ -5,40 +5,38 @@
 #
 
 # Name of this project
-name: ""
+name: "AWS VPC Terraform module"
 
 # Short description of this project
 description: |-
-  Add here
+  This Terraform module contains the neccessary resources for creating a best-practices Virtual Private Cloud (VPC) setup in AWS.
+
+  As per AWS best practices, a single VPC will be created with both public and private subnets, each subnet placed in a seperate availability zone. Each of the private subnets have their own private NAT gateway to allow internet access for resources hosted within the private zone of the network.
 
 # Canonical GitHub repo
-github_repo: osodevops/some-repo
+github_repo: osodevops/aws-terraform-module-vpc
 
 # How to use this project
 usage: |-
-  ### Requirements
-  None.
-
-  ### Role Variables
-  Some information
-  ```yaml
-    ---
-  ```
-
-# Example usage
-examples: |-
-  Follow this example
-  ```yaml
-      ---
+  Include this repository as a module in your existing terraform code:
+  ```hcl
+    module "vpc" {
+      source        = "git::ssh://git@github.com/osodevops/aws-terraform-module-vpc.git"
+      environment   = "dev"
+      common_tags   = var.common_tags
+      zone          = ["us-east-1a", "us-east-1b", "us-east-1c"]
+      account_name  = "foo-bar-aws"
+      cidr          = "10.1.0.0/16"
+    }
   ```
 
 related:
-  - name: ""
-    description: ""
-    url: "https://github.com/osodevops/"
+  - name: "OSO S3 Terraform module"
+    description: "HCL backend stored in S3"
+    url: "https://github.com/osodevops/aws-terraform-module-s3"
 
 # References
 references:
-  - name: ""
-    description: ""
-    url: "https://"
+  - name: "How VAS Group Migrated Their Applications to AWS"
+    description: "Example usage of the VPC module"
+    url: "https://oso.sh/case-studies/how-we-helped-vas-group-achieve-growth-with-tableau/"
