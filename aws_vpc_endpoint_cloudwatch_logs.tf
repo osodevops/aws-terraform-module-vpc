@@ -11,4 +11,3 @@ resource "aws_vpc_endpoint" "cloudwatch_logs" {
 
   private_dns_enabled = true
 }
-

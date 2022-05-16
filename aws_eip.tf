@@ -1,5 +1,5 @@
 resource "aws_eip" "nateip" {
-  count = 3
+  count = length(var.zone)
   vpc   = true
   tags  = var.common_tags
 }
