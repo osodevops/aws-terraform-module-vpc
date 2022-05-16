@@ -39,6 +39,12 @@ variable "zone" {
   type        = list(string)
 }
 
+variable "internal_dns_zone" {
+  description = "Zone to define for internal name resolution"
+  type        = string
+  default     = "internal.cloud"
+}
+
 variable "vpc_endpoint_cloudwatch_enabled" {
   description = "Boolean to turn on/off cloudwatch endpoint"
   type        = number
