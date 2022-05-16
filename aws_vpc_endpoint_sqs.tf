@@ -1,7 +1,7 @@
-resource "aws_vpc_endpoint" "cloudwatch" {
-  count             = var.vpc_endpoint_cloudwatch_enabled
+resource "aws_vpc_endpoint" "sqs" {
+  count             = var.vpc_endpoint_sqs_enabled
   vpc_id            = aws_vpc.main.id
-  service_name      = "com.amazonaws.${data.aws_region.current.name}.monitoring"
+  service_name      = "com.amazonaws.${data.aws_region.current.name}.sqs"
   vpc_endpoint_type = "Interface"
   subnet_ids        = aws_subnet.private.*.id
 

@@ -6,12 +6,12 @@ resource "aws_vpc" "main" {
 
   tags = merge(
     var.common_tags,
+    var.additional_vpc_tags,
     {
       "Type" = "VPC"
     },
     {
       "Name" = var.account_name
-    },
+    }
   )
 }
-
