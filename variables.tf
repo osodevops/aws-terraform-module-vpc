@@ -87,6 +87,12 @@ variable "vpc_endpoint_dynamodb_enabled" {
   default     = 0
 }
 
+variable "subnet_map_public_ip_on_launch" {
+  description = "Whether public subnets should allocate a public ip when instances launch"
+  type        = bool
+  default     = true
+}
+
 locals {
   public_cidrs  = [cidrsubnet(var.cidr, 3, 0), cidrsubnet(var.cidr, 3, 1), cidrsubnet(var.cidr, 3, 2)]
   private_cidrs = [cidrsubnet(var.cidr, 3, 3), cidrsubnet(var.cidr, 3, 4), cidrsubnet(var.cidr, 3, 5)]
