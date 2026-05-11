@@ -16,6 +16,16 @@ variable "additional_subnet_tags" {
   default = {}
 }
 
+variable "additional_public_subnet_tags" {
+  type    = map(string)
+  default = {}
+}
+
+variable "additional_private_subnet_tags" {
+  type    = map(string)
+  default = {}
+}
+
 variable "zone" {
   type    = list(string)
   default = ["us-east-1a", "us-east-1b", "us-east-1c"]

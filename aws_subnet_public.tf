@@ -8,6 +8,7 @@ resource "aws_subnet" "public" {
   tags = merge(
     var.common_tags,
     var.additional_subnet_tags,
+    var.additional_public_subnet_tags,
     {
       "Type" = "PublicSubnet${var.zone[count.index]}"
     },
